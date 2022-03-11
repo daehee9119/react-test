@@ -25,13 +25,13 @@ const server = new ApolloServer({
     }
 })
 
-server.applyMiddleware({app, path: '/graphql'})
+// server.applyMiddleware({app, path: '/graphql'})
 
-//RESTAPI 를 위함
-// const routes = [...messagesRoute, ...usersRoute]
-// routes.forEach(({method, route, handler}) => {
-//     app[method](route, handler)
-// })
+// RESTAPI 를 위함
+const routes = [...messagesRoute, ...usersRoute]
+routes.forEach(({method, route, handler}) => {
+    app[method](route, handler)
+})
 
 app.listen(8000, () => {
     console.log("server listening on 8000...")
